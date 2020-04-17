@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://liucheng-space.github.io/favicon.ico?v=1587108394411">
+<link rel="shortcut icon" href="https://liucheng-space.github.io/favicon.ico?v=1587108500561">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://liucheng-space.github.io/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://liucheng-space.github.io">
-        <img class="avatar" src="https://liucheng-space.github.io/images/avatar.png?v=1587108394411" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://liucheng-space.github.io/images/avatar.png?v=1587108500561" alt="" width="32px" height="32px">
       </a>
       <a href="https://liucheng-space.github.io">
         <h1 class="site-title">LC的笔记</h1>
@@ -80,6 +80,9 @@
       <div class="content-container">
         <div class="post-detail">
           
+            <div class="feature-container" style="background-image: url('https://liucheng-space.github.io/post-images/guan-bi-ssh-lian-jie-de-qing-kuang-xia-rang-cheng-xu-ji-xu-yun-xing-de-fang-fa.jpg')">
+            </div>
+          
           <h2 class="post-title">关闭ssh连接的情况下,让程序继续运行的方法</h2>
           <div class="post-info post-detail-info">
             <span><i class="icon-calendar-outline"></i> 2020-04-17</span>
@@ -110,7 +113,7 @@
             
           </div>
           <div class="post-content">
-            <p>我们是通过SSH去连接linux服务器的，当我们退出或者端口SSH连接的话，当前正在执行的脚本文件也会被停止，因为linux服务器会在你退出SSH连接后，默认关闭进程，而不会hang up进程，所以不想一直保持SSH连接，又想一直保持服务器程序运行的解决办法如下：<br>
+            <p><img src="https://liucheng-space.github.io/post-images/1587108444197.png" alt="" loading="lazy">我们是通过SSH去连接linux服务器的，当我们退出或者端口SSH连接的话，当前正在执行的脚本文件也会被停止，因为linux服务器会在你退出SSH连接后，默认关闭进程，而不会hang up进程，所以不想一直保持SSH连接，又想一直保持服务器程序运行的解决办法如下：<br>
 （这里以阿里云的CentOS系统为例）</p>
 <p><strong>1、安装screen命令</strong></p>
 <pre><code>sudo apt-get install screen 
