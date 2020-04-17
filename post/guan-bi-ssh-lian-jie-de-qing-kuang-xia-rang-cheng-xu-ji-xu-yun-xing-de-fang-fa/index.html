@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Hello Gridea | LC的笔记</title>
+<title>关闭ssh连接的情况下,让程序继续运行的方法 | LC的笔记</title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,51 +80,67 @@
       <div class="content-container">
         <div class="post-detail">
           
-            <div class="feature-container" style="background-image: url('https://liucheng-space.github.io/post-images/hello-gridea.png')">
-            </div>
-          
-          <h2 class="post-title">Hello Gridea</h2>
+          <h2 class="post-title">关闭ssh连接的情况下,让程序继续运行的方法</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2020-04-15</span>
-            
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://liucheng-space.github.io/tag/PxKld05bp/">
-                    Gridea
-                    
-                  </a>
-                
-              </span>
+            <span><i class="icon-calendar-outline"></i> 2020-04-17</span>
             
           </div>
           <div class="post-content">
-            <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+            <p>我们是通过SSH去连接linux服务器的，当我们退出或者端口SSH连接的话，当前正在执行的脚本文件也会被停止，因为linux服务器会在你退出SSH连接后，默认关闭进程，而不会hang up进程，所以不想一直保持SSH连接，又想一直保持服务器程序运行的解决办法如下：<br>
+（这里以阿里云的CentOS系统为例）</p>
+<p><strong>1、安装screen命令</strong></p>
+<pre><code>sudo apt-get install screen 
+</code></pre>
+<p><strong>2、创建screen会话，自定义screen虚拟终端的名称，hass 可以改为你想要的名称</strong></p>
+<p><strong>screen -S hass</strong></p>
+<p><em><strong>3运行你需要一直在后台运行的程序</strong></em></p>
+<p><em><strong>hass      # 这里打开hass程序</strong></em></p>
+<p><em><strong>4 退出远程登陆，hass程序仍在运行，可以正常访问使用</strong></em>*</p>
+<p><em><strong>5 重新远程登陆，查看当前开着的screen会话</strong></em></p>
+<p><em><strong>screen -ls</strong></em></p>
+<figure data-type="image" tabindex="1"><img src="http://liuchengblog.top/wp-content/uploads/2020/04/ssh%E5%B8%B8%E9%A9%BB1.png" alt="技术分享图片" loading="lazy"></figure>
+<p>发现两个会话</p>
+<p>查看子界面的代号，然后输  入</p>
+<pre><code>#screen -r 27701
+</code></pre>
+<p>进去后是空的，因为我没有运行任何程序</p>
+<p>#screen -r 27479</p>
+<p>显示出我正在运行的hass程序</p>
+<p>6如何让关闭和更多用法</p>
+<p>进入27701会话</p>
+<p>screen -r 27701</p>
+<p>关闭它</p>
+<p>exit</p>
+<p>之后再次查看</p>
+<p><strong>screen -ls</strong></p>
+<p><strong>发现关闭了。</strong></p>
+<figure data-type="image" tabindex="2"><img src="http://liuchengblog.top/wp-content/uploads/2020/04/ssh%E5%B8%B8%E9%A9%BB2.png" alt="技术分享图片" loading="lazy"></figure>
+<p>screen用法：</p>
+<ul>
+<li>打开新的会话窗口：screen</li>
+<li>结束当前会话：exit</li>
+<li>在新会话中执行程序（程序关闭时会话自动结束）：screen vi test.c</li>
+<li>打开新会话并起个名字：screen -S myname</li>
+<li>暂时离开会话（经常用）：Ctrl+a 然后 d</li>
+<li>查看会话列表: screen -ls</li>
+<li>恢复之前离开的会话：screen -r 会话名或进程号</li>
+<li>清除dead状态的会话：screen -wipe</li>
+<li>启动一个开始就是Detached状态的会话：screen -dmS 名字 命令</li>
+</ul>
+<p>转载自：http://m.mamicode.com/info-detail-2411546.html</p>
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://liucheng-space.github.io/post/arduino/">
+              <h3 class="post-title">
+                下一篇：arduino
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       
