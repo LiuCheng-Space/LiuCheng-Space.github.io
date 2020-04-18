@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liucheng-space.github.io</id>
     <title>LC的笔记</title>
-    <updated>2020-04-17T12:32:53.030Z</updated>
+    <updated>2020-04-18T11:43:08.032Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liucheng-space.github.io"/>
     <link rel="self" href="https://liucheng-space.github.io/atom.xml"/>
     <logo>https://liucheng-space.github.io/images/avatar.png</logo>
     <icon>https://liucheng-space.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LC的笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[npm换源成淘宝镜像]]></title>
+        <id>https://liucheng-space.github.io/post/npm-huan-yuan-cheng-tao-bao-jing-xiang/</id>
+        <link href="https://liucheng-space.github.io/post/npm-huan-yuan-cheng-tao-bao-jing-xiang/">
+        </link>
+        <updated>2020-04-18T11:40:09.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[关闭ssh连接的情况下,让程序继续运行的方法]]></title>
         <id>https://liucheng-space.github.io/post/guan-bi-ssh-lian-jie-de-qing-kuang-xia-rang-cheng-xu-ji-xu-yun-xing-de-fang-fa/</id>

@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>关于 | LC的笔记</title>
+<title>npm换源成淘宝镜像 | LC的笔记</title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,40 +80,59 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">关于</h2>
+          <h2 class="post-title">npm换源成淘宝镜像</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-01-25</span>
+            <span><i class="icon-calendar-outline"></i> 2020-04-18</span>
             
           </div>
           <div class="post-content">
-            <blockquote>
-<p>欢迎来到我的小站，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于我的其他站点"><strong>关于我的其他站点</strong></h2>
-<p><a href="http://liuchengblog.top" target="_blank">LC的个人站（主站）</a><br>
-<a href="http://note.liuchengblog.xyz/ruanjian/#" target="_blank">LC的空间（未完成预览版）</a><br>
-LC的小说站：已启用（因版权问题不开放）<br>
-LC的漫画站：开发中~（不考虑开放）</p>
-<h2 id="关于站长"><strong>👨‍💻 关于站长</strong></h2>
-<p>我是<a href="http://liuchengblog.top/index.php/%e5%85%b3%e4%ba%8e/" target="_blank">LC</a></p>
-<ul>
-<li>喜欢用arduino做一些稀奇古怪的项目</li>
-<li>语言能力很差</li>
-<li>一名在校学生</li>
-<li>喜欢纯音乐和日系音乐</li>
-<li>没什么朋友</li>
-<li>喜欢宅在家里，不喜欢在人多的地方呆太久</li>
-</ul>
-<h2 id="联系我"><strong>📬 联系我</strong></h2>
-<p><i class="fa fa-envelope" aria-hidden="true"></i>:liuchengblogmail@163.com</p>
-<h2 id="关于本站"><strong>关于本站</strong></h2>
-<p>本站纯属为个人笔记暂存点，无任何收入，如转载文章的版权拥有者要求删除文章，请通<br>
-过邮件联系我，我一定及时处理，谢谢您的理解。</p>
+            <p>由于node下载第三方依赖包是从国外服务器下载，虽然没有被墙，但是下载的速度是非常的缓慢且有可能会出现异常。</p>
+<p>所以为了提高效率，我们还是把npm的镜像源替换成淘宝的镜像源。有几种方式供我们选择</p>
+<h3 id="使用cnpm">使用cnpm</h3>
+<p>使用阿里定制的cnpm命令行工具代替默认的npm，输入以下代码</p>
+<pre><code>$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre>
+<p>检测是否安装成功</p>
+<pre><code>$ cnpm -v
+</code></pre>
+<p>安装成功之后，以后安装依赖包的方式和npm的是一样的，只是npm的命令换成是cnpm就可以了</p>
+<p>假如你已经习惯了使用npm的安装方式的，不想去下载阿里的cnpm命令工具的话，很简单，我们直接将node的仓库地址换成淘宝仓库地址即可</p>
+<h3 id="单次使用">单次使用</h3>
+<pre><code>$  npm install --registry=https://registry.npm.taobao.org
+</code></pre>
+<h3 id="永久使用">永久使用</h3>
+<p>在开发react-native的时候，不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别。所以，为了方便开发，我们最好是直接永久使用淘宝的镜像源</p>
+<p>直接命令行的设置</p>
+<pre><code>$ npm config set registry https://registry.npm.taobao.org
+</code></pre>
+<p>手动修改设置</p>
+<pre><code>1.打开.npmrc文件（C:\Program Files\nodejs\node_modules\npm\npmrc，没有的话可以使用git命令行建一个( touch .npmrc)，用cmd命令建会报错）
+2.增加 registry =https://registry.npm.taobao.org  即可。
+</code></pre>
+<p>检测是否修改成功</p>
+<pre><code>// 配置后可通过下面方式来验证是否成功
+npm config get registry
+// 或
+npm info express
+</code></pre>
+<p>注：如果想还原npm仓库地址的话，只需要在把地址配置成npm镜像就可以了</p>
+<pre><code>npm config ``set` `registry https:``//registry.npmjs.org/
+</code></pre>
+<p></p>
+<p>转载自：https://www.cnblogs.com/cythia/p/10985080.html</p>
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://liucheng-space.github.io/post/guan-bi-ssh-lian-jie-de-qing-kuang-xia-rang-cheng-xu-ji-xu-yun-xing-de-fang-fa/">
+              <h3 class="post-title">
+                下一篇：关闭ssh连接的情况下,让程序继续运行的方法
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       
