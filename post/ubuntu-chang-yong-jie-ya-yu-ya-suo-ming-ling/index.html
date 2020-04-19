@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>npm换源成淘宝镜像 | LC的笔记</title>
+<title>Ubuntu 常用解压与压缩命令 | LC的笔记</title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,55 +80,66 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">npm换源成淘宝镜像</h2>
+          <h2 class="post-title">Ubuntu 常用解压与压缩命令</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2020-04-18</span>
+            <span><i class="icon-calendar-outline"></i> 2020-04-19</span>
             
           </div>
           <div class="post-content">
-            <p>由于node下载第三方依赖包是从国外服务器下载，虽然没有被墙，但是下载的速度是非常的缓慢且有可能会出现异常。</p>
-<p>所以为了提高效率，我们还是把npm的镜像源替换成淘宝的镜像源。有几种方式供我们选择</p>
-<h3 id="使用cnpm">使用cnpm</h3>
-<p>使用阿里定制的cnpm命令行工具代替默认的npm，输入以下代码</p>
-<pre><code>$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+            <p>本文将讲述常用压缩文件格式的解压和压缩的ssh指令，ubuntu解压zip中文乱码解决方法里面也有。</p>
+<!-- more -->
+<hr>
+<h3 id="zip文件">.zip文件</h3>
+<pre><code># 感觉.zip占用空间比.tar.gz大
+unzip FileName.zip          # 解压
+zip FileName.zip DirName    # 将DirName本身压缩
+zip -r FileName.zip DirName # 压缩，递归处理，将指定目录下的所有文件和子目录一并压缩
 </code></pre>
-<p>检测是否安装成功</p>
-<pre><code>$ cnpm -v
+<h6 id="注ubuntu自带的解压工具zip解压的时候总是中文乱码使用unar工具可以完美地解决zip解压乱码问题操作如下">注：Ubuntu自带的解压工具zip解压的时候总是中文乱码，使用unar工具可以完美地解决zip解压乱码问题，操作如下。</h6>
+<ul>
+<li>
+<p>安装unar解压工具</p>
+<pre><code class="language--">sudo apt-get install unar1
 </code></pre>
-<p>安装成功之后，以后安装依赖包的方式和npm的是一样的，只是npm的命令换成是cnpm就可以了</p>
-<p>假如你已经习惯了使用npm的安装方式的，不想去下载阿里的cnpm命令工具的话，很简单，我们直接将node的仓库地址换成淘宝仓库地址即可</p>
-<h3 id="单次使用">单次使用</h3>
-<pre><code>$  npm install --registry=https://registry.npm.taobao.org
+</li>
+<li>
+<p>解压相应的zip文件</p>
+<pre><code>unar FileName.zip
 </code></pre>
-<h3 id="永久使用">永久使用</h3>
-<p>在开发react-native的时候，不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别。所以，为了方便开发，我们最好是直接永久使用淘宝的镜像源</p>
-<p>直接命令行的设置</p>
-<pre><code>$ npm config set registry https://registry.npm.taobao.org
+</li>
+</ul>
+<hr>
+<h3 id="tar-文件">.tar 文件</h3>
+<pre><code># 仅打包，并非压缩
+tar -xvf FileName.tar         # 解包
+tar -cvf FileName.tar DirName # 将DirName和其下所有文件（夹）打包
 </code></pre>
-<p>手动修改设置</p>
-<pre><code>1.打开.npmrc文件（C:\Program Files\nodejs\node_modules\npm\npmrc，没有的话可以使用git命令行建一个( touch .npmrc)，用cmd命令建会报错）
-2.增加 registry =https://registry.npm.taobao.org  即可。
+<h3 id="rar文件解压">.rar文件解压</h3>
+<pre><code># mac和linux并没有自带rar，需要去下载
+rar x FileName.rar      # 解压
+rar a FileName.rar DirName # 压缩
 </code></pre>
-<p>检测是否修改成功</p>
-<pre><code>// 配置后可通过下面方式来验证是否成功
-npm config get registry
-// 或
-npm info express
+<h3 id="gz文件">.gz文件</h3>
+<pre><code># .gz
+gunzip FileName.gz  # 解压1
+gzip -d FileName.gz # 解压2
+gzip FileName       # 压缩，只能压缩文件
 </code></pre>
-<p>注：如果想还原npm仓库地址的话，只需要在把地址配置成npm镜像就可以了</p>
-<pre><code>npm config ``set` `registry https:``//registry.npmjs.org/
+<h3 id="targz文件-tgz文件">.tar.gz文件、 .tgz文件</h3>
+<pre><code># .tar.gz 和 .tgz
+tar -zxvf FileName.tar.gz               # 解压
+tar -zcvf FileName.tar.gz DirName       # 将DirName和其下所有文件（夹）压缩
+tar -C DesDirName -zxvf FileName.tar.gz # 解压到目标路径
 </code></pre>
-<p></p>
-<p>转载自：https://www.cnblogs.com/cythia/p/10985080.html</p>
 
           </div>
         </div>
 
         
           <div class="next-post">
-            <a class="purple-link" href="https://liucheng-space.github.io/post/guan-bi-ssh-lian-jie-de-qing-kuang-xia-rang-cheng-xu-ji-xu-yun-xing-de-fang-fa/">
+            <a class="purple-link" href="https://liucheng-space.github.io/post/npm-huan-yuan-cheng-tao-bao-jing-xiang/">
               <h3 class="post-title">
-                下一篇：关闭ssh连接的情况下,让程序继续运行的方法
+                下一篇：npm换源成淘宝镜像
               </h3>
             </a>
           </div>

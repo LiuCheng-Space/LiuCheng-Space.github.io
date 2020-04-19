@@ -2,13 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liucheng-space.github.io</id>
     <title>LC的笔记</title>
-    <updated>2020-04-18T11:43:08.032Z</updated>
+    <updated>2020-04-19T05:00:03.651Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liucheng-space.github.io"/>
     <link rel="self" href="https://liucheng-space.github.io/atom.xml"/>
     <logo>https://liucheng-space.github.io/images/avatar.png</logo>
     <icon>https://liucheng-space.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, LC的笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu 常用解压与压缩命令]]></title>
+        <id>https://liucheng-space.github.io/post/ubuntu-chang-yong-jie-ya-yu-ya-suo-ming-ling/</id>
+        <link href="https://liucheng-space.github.io/post/ubuntu-chang-yong-jie-ya-yu-ya-suo-ming-ling/">
+        </link>
+        <updated>2020-04-19T04:50:01.000Z</updated>
+        <summary type="html"><![CDATA[<p>本文将讲述常用压缩文件格式的解压和压缩的ssh指令，ubuntu解压zip中文乱码解决方法里面也有。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本文将讲述常用压缩文件格式的解压和压缩的ssh指令，ubuntu解压zip中文乱码解决方法里面也有。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[npm换源成淘宝镜像]]></title>
         <id>https://liucheng-space.github.io/post/npm-huan-yuan-cheng-tao-bao-jing-xiang/</id>
